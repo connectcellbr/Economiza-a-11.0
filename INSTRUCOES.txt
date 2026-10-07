@@ -1,0 +1,23 @@
+ECONOMIZA AI — DEPLOY GITHUB + RENDER
+
+1. Suba o conteúdo desta pasta para um repositório GitHub.
+2. No Render, crie um Web Service apontando para o repositório.
+3. O Dockerfile e o render.yaml já estão incluídos.
+4. Health check: /api/health
+5. Comparação de preços: /api/search?q=nome-do-produto
+6. Agente de comparação: /api/agent?q=qual o menor preço de iphone 16
+
+ARQUITETURA DE PESQUISA
+- O aplicativo NÃO faz pesquisa web genérica.
+- Google, Bing, DuckDuckGo e Yahoo não são usados para procurar ofertas.
+- O cliente permanece dentro do Economiza AI.
+- As ofertas são consultadas em fontes de preços estruturadas e depois filtradas, deduplicadas e ranqueadas.
+- Nenhum preço é inventado ou estimado.
+- Se as fontes estiverem indisponíveis, o app informa a indisponibilidade.
+
+BACKGROUND
+- O background foi alterado para contain, evitando que a arte seja ampliada/cortada de forma excessiva.
+- Os arquivos de imagem foram normalizados para corresponder ao MIME/extensão PNG.
+
+OBSERVAÇÃO
+O endpoint antigo /api/web-search responde 410 propositalmente para impedir que versões antigas do frontend façam pesquisa web genérica.
